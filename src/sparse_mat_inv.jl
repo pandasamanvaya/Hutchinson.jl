@@ -4,7 +4,7 @@ export sparse_mat_inv
 using LinearAlgebra
 
 #Breaking up U into DU
-function gen_diag_mat(U::Matrix)
+function gen_diag_mat(U::AbstractMatrix)
 
 	l = length(U[:,1])
 	D = zeros(l,l)
@@ -20,7 +20,7 @@ function gen_diag_mat(U::Matrix)
 end
 
 #Computing inverse of diagonal matrix
-function diag_inv(D::Matrix)
+function diag_inv(D::AbstractMatrix)
 
 	for i = 1:length(D[:,1])
 		D[i,i] = 1/D[i,i]
@@ -29,7 +29,7 @@ function diag_inv(D::Matrix)
 	return D
 end
 
-function sum_prod(A::Matrix, B::Matrix, i, j)
+function sum_prod(A::AbstractMatrix, B::AbstractMatrix, i, j)
 	sum = 0
 	if i <= j
 		for k = i+1:length(A[:,1])
@@ -45,7 +45,7 @@ function sum_prod(A::Matrix, B::Matrix, i, j)
 end
 
 #Main Function
-function sparse_mat_inv(A::Matrix)
+function sparse_mat_inv(A::AbstractMatrix)
 	F = lu(A)
 	L = F.L
 	D, U = gen_diag_mat(F.U)

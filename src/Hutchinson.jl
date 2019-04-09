@@ -3,7 +3,7 @@ using Hadamard
 export inverse_mat_trace
 include("sparse_mat_inv.jl")
 
-function inverse_mat_trace(A::Matrix)
+function inverse_mat_trace(A::AbstractMatrix)
 	Z = sparse_mat_inv(A)
 
 	H = hadamard(length(A[:,1]))
