@@ -1,4 +1,4 @@
-module Hutchinson.jl
+module Hutchinson
 using Hadamard
 export inverse_mat_trace
 include("sparse_mat_inv.jl")
