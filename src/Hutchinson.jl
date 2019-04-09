@@ -1,4 +1,4 @@
-module Hutchinson
+#module Hutchinson
 using Hadamard
 export inverse_mat_trace
 include("sparse_mat_inv.jl")
@@ -15,4 +15,6 @@ function inverse_mat_trace(A::AbstractMatrix)
 	return (trace/length(H[1,:]))
 end 
 
-end # module
+A = [4 0 0 0; 0 1 1 0; 0 0 2 0; 3 0 0 1]
+println(inverse_mat_trace(A))
+#end # module
