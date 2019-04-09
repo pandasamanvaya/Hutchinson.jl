@@ -2,3 +2,7 @@ name = "Hutchinson"
 uuid = "995b7c66-5aa6-11e9-01e2-4f2db58bd986"
 authors = ["pandasamanvaya <pandasamanvaya@gmail.com>"]
 version = "0.1.0"
+
+[deps]
+Hadamard = "4a05ff16-5f95-55f4-bb53-bb3f467c689a"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
