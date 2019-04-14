@@ -46,16 +46,16 @@ end
 
 function sparse(A::AbstractMatrix)
 
-	zero = 0
+	zero_cnt = 0
 	for i = 1 : length(A[1,:])
 		for j = 1 : length(A[:,1])
 			if A[i,j] == 0
-				zero += 1
+				zero_cnt += 1
 			end
 		end
 	end
 
-	if zero/(length(A[1,:] * length[A[:,1]])) > 0.5
+	if zero_cnt/(length(A[1,:] * length[A[:,1]])) > 0.5
 		return true
 	else
 		return false 
