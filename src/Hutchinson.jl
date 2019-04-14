@@ -28,6 +28,8 @@ function inverse_mat_trace(A::AbstractMatrix)
 		H = random_vector(Z) #using random vectors
 	end
 	
+	trace = 0
+	
 	for i = 1 : length(H[1,:])
 		e = H[:,i]
 		trace += e'*Z*e
