@@ -44,8 +44,30 @@ function sum_prod(A::AbstractMatrix, B::AbstractMatrix, i, j)
 	return sum
 end
 
+function sparse(A::AbstractMatrix)
+
+	zero = 0
+	for i = 1 : length(A[1,:])
+		for j = 1 : length(A[:,1])
+			if A[i,j] == 0
+				zero += 1
+			end
+		end
+	end
+
+	if zero/(length(A[1,:] * length[A[:,1]])) > 0.5
+		return true
+	else
+		return false 
+
+end
+
 #Main Function
 function sparse_mat_inv(A::AbstractMatrix)
+	
+	if !sparse(A)
+		error('Matrix is not sparse')
+
 	F = lu(A)
 	L = F.L
 	D, U = gen_diag_mat(F.U)
