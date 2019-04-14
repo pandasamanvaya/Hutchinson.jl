@@ -22,6 +22,7 @@ function random_vector(Z::AbstractMatrix)
 	end
 
 	return e'*Z*e
+end
 
 function inverse_mat_trace(A::AbstractMatrix)
 
