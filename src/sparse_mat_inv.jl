@@ -45,7 +45,8 @@ function sum_prod(A::AbstractMatrix, B::AbstractMatrix, i, j)
 	return sum
 end
 
-function sparse(A::AbstractMatrix)
+#Checking sparsity of matrix
+function check_sparse(A::AbstractMatrix)
 
 	zero_cnt = 0
 	for i = 1 : length(A[1,:])
@@ -71,10 +72,11 @@ function sparse_mat_inv(A::AbstractMatrix)
 		A = Array(A)
 	end
 
-	if !sparse(A)
+	if !check_sparse(A)
 		error("Matrix is not sparse")
 	end
-
+	
+	A = sparse(A)
 	F = ilu(A, τ = 1e-3)
 	L = F.L + I
 	D, U = gen_diag_mat(F.U')
