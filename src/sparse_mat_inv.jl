@@ -55,7 +55,7 @@ function sparse(A::AbstractMatrix)
 		end
 	end
 
-	if zero_cnt/(length(A[1,:] * length[A[:,1]])) > 0.5
+	if zero_cnt/(length(A[1,:]) * length(A[:,1])) > 0.5
 		return true
 	else
 		return false 
