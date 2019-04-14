@@ -28,7 +28,7 @@ function inverse_mat_trace(A::AbstractMatrix)
 	Z = sparse_mat_inv(A)
 	if length(Z[:,1])%4 == 0 || length(Z[:,1]) == 2
 		trace = hadamard_vector(Z)
-	else:
+	else
 		trace = random_vector(Z)
 	end
 	
