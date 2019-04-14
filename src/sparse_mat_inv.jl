@@ -59,14 +59,15 @@ function sparse(A::AbstractMatrix)
 		return true
 	else
 		return false 
-
+	end
+	
 end
 
 #Main Function
 function sparse_mat_inv(A::AbstractMatrix)
 	
 	if !sparse(A)
-		error('Matrix is not sparse')
+		error("Matrix is not sparse")
 
 	F = lu(A)
 	L = F.L
