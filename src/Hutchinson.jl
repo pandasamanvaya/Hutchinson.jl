@@ -10,7 +10,7 @@ function random_vector(Z::AbstractMatrix)
 
 	for i = 1 : length(Z[:,1])
 		for j = 1 : 10
-			vec[i][j] = random[rand(1:2)]
+			vec[i,j] = random[rand(1:2)]
 		end
 	end
 
