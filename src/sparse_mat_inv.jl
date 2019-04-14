@@ -75,7 +75,7 @@ function sparse_mat_inv(A::AbstractMatrix)
 		error("Matrix is not sparse")
 	end
 
-	F = ilu(A)
+	F = ilu(A, τ = 1e-3)
 	L = F.L + I
 	D, U = gen_diag_mat(F.U')
 	D_inv = diag_inv(D)
