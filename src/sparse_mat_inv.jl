@@ -2,6 +2,7 @@
 export sparse_mat_inv
 using SparseArrays
 using LinearAlgebra
+using IncompleteLU
 
 #Breaking up U into DU
 function gen_diag_mat(U::AbstractMatrix)
@@ -74,11 +75,12 @@ function sparse_mat_inv(A::AbstractMatrix)
 		error("Matrix is not sparse")
 	end
 
-	F = lu(A)
-	L = F.L
-	D, U = gen_diag_mat(F.U)
+	F = ilu(A)
+	L = F.L + I
+	D, U = gen_diag_mat(F.U')
 	D_inv = diag_inv(D)
 	Z = Matrix{Float64}(I, length(A[:,1]), length(A[:,1]))
+	
 	for i = length(A[:,1]):-1:1
 
 		#Diagonal
