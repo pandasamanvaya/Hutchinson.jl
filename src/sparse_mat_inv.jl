@@ -1,6 +1,6 @@
 
 export sparse_mat_inv
-
+using SparseArrays
 using LinearAlgebra
 
 #Breaking up U into DU
@@ -60,14 +60,19 @@ function sparse(A::AbstractMatrix)
 	else
 		return false 
 	end
-	
+
 end
 
 #Main Function
 function sparse_mat_inv(A::AbstractMatrix)
 	
+	if issparse(A)
+		A = Array(A)
+	end
+
 	if !sparse(A)
 		error("Matrix is not sparse")
+	end
 
 	F = lu(A)
 	L = F.L
