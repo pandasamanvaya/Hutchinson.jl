@@ -73,7 +73,7 @@ function sparse_mat_inv(A::AbstractMatrix)
 	end
 
 	if !check_sparse(A)
-		error("Matrix is not sparse")
+		throw(ArgumentError("Matrix is not sparse"))
 	end
 	
 	A = sparse(A)
